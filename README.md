@@ -2,10 +2,6 @@
 
 A modern, interactive developer portfolio featuring 3D animations, smooth transitions, and a space-themed aesthetic. Built with Next.js, featuring an interactive 3D keyboard where each keycap represents a skill.
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://architmittal.com)
-
-![Portfolio Preview](https://github.com/archittmittal/3d-portfolio/blob/main/public/assets/projects-screenshots/portfolio/landing.png?raw=true)
-
 ## ✨ Features
 
 - **Interactive 3D Keyboard** — Custom Spline keyboard where each keycap represents a skill

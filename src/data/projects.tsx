@@ -14,6 +14,7 @@ import {
   SiFirebase,
   SiJavascript,
   SiMongodb,
+  SiMysql,
   SiPostgresql,
   SiPrisma,
   SiPython,
@@ -27,6 +28,7 @@ import {
   SiTypescript,
   SiVuedotjs,
 } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
 import { TbBrandFramerMotion } from "react-icons/tb";
 const BASE_PATH = "/assets/projects-screenshots";
 
@@ -222,6 +224,18 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <SiSupabase />,
   },
+  java: {
+    title: "Java",
+    bg: "black",
+    fg: "white",
+    icon: <FaJava />,
+  },
+  mysql: {
+    title: "MySQL",
+    bg: "black",
+    fg: "white",
+    icon: <SiMysql />,
+  },
 };
 export type Project = {
   id: string;
@@ -236,463 +250,358 @@ export type Project = {
 };
 const projects: Project[] = [
   {
-    id: "codingducks",
-    category: "Coding platform",
-    title: "Coding Ducks",
-    src: "/assets/projects-screenshots/codingducks/landing.png",
+    id: "astramed",
+    category: "Healthcare AI",
+    title: "AstraMed: Clinical Risk AI",
+    src: "/assets/projects-screenshots/astramed/landing.png",
     screenshots: ["landing.png"],
     skills: {
       frontend: [
         PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.chakra,
-        PROJECT_SKILLS.reactQuery,
-        PROJECT_SKILLS.firebase,
+        PROJECT_SKILLS.react,
+        PROJECT_SKILLS.tailwind,
       ],
       backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.express,
-        PROJECT_SKILLS.prisma,
         PROJECT_SKILLS.python,
-        PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.sockerio,
+        PROJECT_SKILLS.docker,
       ],
     },
-    live: "https://www.codingducks.xyz/",
-    github: "https://github.com/Naresh-Khatri/Coding-Ducks",
+    live: "https://clinical-risk-predictor-nine.vercel.app/",
+    github: "https://github.com/archittmittal/clinical-risk-predictor",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            Coding ducks = LeetCode + CodePen + CSS Battles
+            Next-Generation Predictive Analytics &amp; Decision Support System
           </TypographyP>
           <TypographyP className="font-mono ">
-            Coding Ducks is your coding dojo — where you level up your skills,
-            battle in real-time code duels, and earn badges like a true code
-            warrior. Track your progress, flex your brain, and climb the
-            leaderboard. Ready to quack the code?
+            AstraMed is an AI-driven clinical decision support system for
+            diabetes and chronic disease risk stratification. It leverages a
+            &quot;Tri-Force&quot; ensemble of XGBoost, CatBoost, and LightGBM
+            with SHAP-based explainability, counterfactual reasoning, and
+            BioMistral-7B for medical-grade AI reports. Built for the Hack for
+            Green Bharat hackathon.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">Problems </TypographyH3>
+          <TypographyH3 className="my-4 mt-8">
+            Risk Scoring &amp; Stratification
+          </TypographyH3>
           <p className="font-mono mb-2">
-            Solve coding problems similar to LeetCode, enhancing your
-            problem-solving skills across various languages.
+            Multi-level risk classification (Low / Medium / High) with
+            confidence intervals, longitudinal tracking, and population-based
+            percentile rankings.
           </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/problems.png`,
-              `${BASE_PATH}/codingducks/problem.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">Ducklets</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">
+            Explainability &amp; Transparency
+          </TypographyH3>
           <p className="font-mono mb-2">
-            Collaborate in real-time with others in a multiplayer coding
-            environment, just like CodePen but with a social twist.
+            Every prediction is backed by SHAP values with feature importance
+            rankings, force plots, and interactive charts — solving the
+            &quot;black box&quot; problem in clinical AI.
           </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/ducklets.png`,
-              `${BASE_PATH}/codingducks/ducklet1.png`,
-              `${BASE_PATH}/codingducks/ducklet2.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">UI Battles </TypographyH3>
-
+          <TypographyH3 className="my-4 mt-8">
+            What-If Counterfactual Simulation
+          </TypographyH3>
           <p className="font-mono mb-2">
-            Challenge yourself to create UI components with HTML/CSS/JS, and get
-            instant feedback with an automated similarity scoring.
+            Interactive sliders let clinicians simulate outcomes — &quot;If the
+            patient reduces BMI by 5%, how does their risk change?&quot; —
+            empowering shared decision-making and personalized goal setting.
           </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/css-battles.png`,
-              `${BASE_PATH}/codingducks/css-battle.png`,
-              `${BASE_PATH}/codingducks/css-battle2.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">Contests </TypographyH3>
+          <TypographyH3 className="my-4 mt-8">
+            AI-Powered Reports
+          </TypographyH3>
           <p className="font-mono mb-2">
-            Organize or participate in coding competitions. Successfully used to
-            host three contests during college.
+            BioMistral-7B generates clinical summaries for providers and
+            plain-language explanations for patients, with exportable PDF
+            reports.
           </p>
-          <SlideShow images={[`${BASE_PATH}/codingducks/contests.png`]} />
-          <TypographyH3 className="my-4 mt-8">Playground </TypographyH3>
+          <TypographyH3 className="my-4 mt-8">
+            Population Analytics
+          </TypographyH3>
           <p className="font-mono mb-2">
-            Test and execute your code instantly in my versatile online code
-            runner.
+            Digital twin matching finds similar patient outcomes, cohort
+            analysis provides demographic comparisons, and trend detection
+            reveals population-level patterns.
           </p>
-          <SlideShow images={[`${BASE_PATH}/codingducks/playground.png`]} />
-          <TypographyH3 className="my-4 mt-8">Users</TypographyH3>
-
+          <TypographyH3 className="my-4 mt-8">
+            Pro Max UI/UX
+          </TypographyH3>
           <p className="font-mono mb-2">
-            Track your progress, earn badges, and climb the rankings with
-            detailed user profiles and activity tracking.
+            Glassmorphism 2.0 aesthetic with bento grid layout,
+            information-dense organized dashboard, and dual interfaces — a
+            technical clinician dashboard and a simple patient portal with
+            traffic-light risk gauges.
           </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/users.png`,
-              `${BASE_PATH}/codingducks/user.png`,
-            ]}
-          />
         </div>
       );
     },
   },
   {
-    id: "couponluxury",
-    category: "Coupon site",
-    title: "Coupon Luxury",
-    src: "/assets/projects-screenshots/couponluxury/landing.png",
-    screenshots: ["1.png", "2.png", "3.png", "4.png", "5.png"],
-    live: "https://www.couponluxury.com/",
+    id: "attendance-system",
+    category: "Desktop App",
+    title: "Attendance Eligibility System",
+    src: "/assets/projects-screenshots/attendance-system/landing.png",
+    screenshots: ["landing.png"],
     skills: {
-      frontend: [
-        PROJECT_SKILLS.js,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.chakra,
-        PROJECT_SKILLS.vue,
-      ],
-      backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.express,
-        PROJECT_SKILLS.prisma,
-        PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.docker,
-      ],
+      frontend: [PROJECT_SKILLS.java],
+      backend: [PROJECT_SKILLS.mysql],
     },
-    get content(): JSX.Element {
-      return (
-        <div>
-          <TypographyP className="font-mono ">
-            CouponLuxury is your go-to destination for snagging the best deals
-            without lifting a finger. Whether you&apos;re hunting for the latest
-            discounts or trying to save a buck at your favorite stores,
-            CouponLuxury&apos;s got you covered.
-          </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <p className="font-mono mb-2 mt-4">
-            As soon as you land, boom! You&apos;re greeted with the freshest
-            coupons and top-tier deals that&apos;ll make your wallet happy.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/couponluxury/landing.png`]} />
-          <TypographyH3 className="my-4 ">Stores</TypographyH3>
-          <p className="font-mono mb-2">
-            Dive into a comprehensive list of stores, each packed with exclusive
-            deals and discounts. It&apos;s like having a VIP pass to every sale
-            in town.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/couponluxury/stores.png`,
-              `${BASE_PATH}/couponluxury/store.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">Categories</TypographyH3>
-
-          <p className="font-mono mb-2">
-            Whatever you&apos;re into—fashion, tech, food—you&apos;ll find it
-            neatly organized here. No more endless scrolling; just pick a
-            category and get the best offers instantly.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/couponluxury/categories.png`]} />
-          <TypographyH3 className="my-4 mt-8">Custom CMS </TypographyH3>
-          <p className="font-mono mb-2">
-            Powered by Vue.js, this bad boy allows us to keep the content
-            dynamic and up-to-date. From flash sales to limited-time offers, my
-            CMS ensures everything&apos;s live and relevant.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/couponluxury/cms-1.png`,
-              `${BASE_PATH}/couponluxury/cms-2.png`,
-            ]}
-          />
-          <p className="font-mono mb-2 mt-5">
-            Plus, I&apos;ve sprinkled in some extra magic like personalized
-            deal recommendations, user-friendly search features, and a sleek,
-            responsive design that works like a charm on any device.
-          </p>
-          <p className="font-mono mb-2">
-            CouponLuxury isn&apos;t just a website; it&apos;s your personal deal-hunting
-            assistant, ensuring you never miss out on a bargain!
-          </p>
-          {/* <TypographyP className="my-4 mt-8">
-          <strong>Misc:</strong>
-          Hosted not one, not two, but THREE coding contests (Codemacha) during
-          college. Safe to say, Coding Ducks passed the vibe check.
-        </TypographyP>
-        <TypographyP className="my-4 mt-8">
-          <strong>Target Audience:</strong>
-          For all the novice coders out there ready to make their mark.
-        </TypographyP> */}
-        </div>
-      );
-    },
-  },
-  {
-    id: "the-booking-desk",
-    category: "Travel",
-    title: "The Booking Desk",
-    src: "/assets/projects-screenshots/the-booking-desk/landing.png",
-    screenshots: ["1.png"],
-    live: "https://thebookingdesk.com/",
-    skills: {
-      frontend: [
-        PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.aceternity,
-        PROJECT_SKILLS.tailwind,
-      ],
-      backend: [PROJECT_SKILLS.sanity],
-    },
+    live: "#",
+    github: "https://github.com/archittmittal/Attendance-Eligibility-Management-System-JAVA-",
     get content() {
       return (
         <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            Smart Attendance Tracking &amp; 75% Eligibility Calculator
+          </TypographyP>
           <TypographyP className="font-mono ">
-            The Booking Desk is your ultimate travel consultation hub, designed
-            to turn your wanderlust dreams into reality. With a focus on smooth
-            and visually captivating animations, navigating the site feels like
-            a breeze—it&apos;s almost as if the destinations are calling you.
+            A comprehensive Java desktop application that automates attendance
+            tracking and eligibility calculation for educational institutions.
+            It helps students stay compliant with the mandatory 75% attendance
+            rule through real-time calculations, predictive analysis, and
+            intelligent schedule management.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
-          <p className="font-mono mb-2 mt-8">
-            A sleek, modern interface greets you, featuring the latest travel
-            tips, deals, and must-visit spots around the globe.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/the-booking-desk/landing.png`]} />
-          <TypographyH3 className="my-4 mt-8">Blogs</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">
+            75% Attendance Calculator
+          </TypographyH3>
           <p className="font-mono mb-2">
-            Dive into the curated articles written by travel experts. Whether
-            you&apos;re looking for hidden gems or travel hacks, our blog section has
-            you covered.
+            Automatically calculates if a student meets the 75% attendance
+            threshold with subject-wise and overall tracking. Shows how many
+            classes can be missed or must be attended to stay eligible.
           </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/the-booking-desk/blogs.png`,
-              `${BASE_PATH}/the-booking-desk/blog.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">Sanity CMS</TypographyH3>
-
+          <TypographyH3 className="my-4 mt-8">
+            Predictive Analysis
+          </TypographyH3>
           <p className="font-mono mb-2">
-            Keeping everything fresh and up-to-date, I&apos;ve integrated Sanity CMS
-            to manage all the content with ease, ensuring you always get the
-            latest and greatest information.
+            Smart projections tell you exactly how many more classes you can
+            skip while maintaining 75%, or how many consecutive classes you
+            need to attend if you&apos;re below the threshold.
           </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/the-booking-desk/cms-1.png`,
-              `${BASE_PATH}/the-booking-desk/cms-2.png`,
-            ]}
-          />
-          <p className="font-mono mb-2 my-8">
-            With a stunning 100% score on Lighthouse, The Booking Desk isn&apos;t
-            just beautiful—it&apos;s built to perform. Whether you&apos;re planning your
-            next adventure or just daydreaming, our site delivers a top-notch
-            experience that&apos;s both informative and enjoyable.
+          <TypographyH3 className="my-4 mt-8">
+            Holiday &amp; Leave Management
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Factor in holidays, planned leaves (medical, personal), and
+            weekly schedules for accurate attendance forecasting across the
+            semester.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Multi-User System
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Separate interfaces for students and administrators with
+            role-based access. Student profiles, attendance history,
+            report generation, and data export to CSV/Excel.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Built with Java Best Practices
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Implements OOP, Collections Framework, JDBC with prepared
+            statements, multithreading for responsive UI, and design
+            patterns (Singleton, Factory, Observer, MVC). MySQL backend
+            with auto-created tables on first launch.
+          </p>
+          <p className="font-mono mb-2 mt-8 text-center">
+            🚧 Work in progress — actively being developed with new features.
           </p>
         </div>
       );
     },
   },
   {
-    id: "portfolio",
-    category: "Portfolio",
-    title: "My Portfolio",
-    src: "/assets/projects-screenshots/portfolio/landing.png",
-    screenshots: ["1.png"],
-    live: "http://nareshkhatri.vercel.app",
-    github:"https://github.com/Naresh-Khatri/Portfolio",
+    id: "eco-vyapaar",
+    category: "Social Impact",
+    title: "Eco-Vyapaar",
+    src: "/assets/projects-screenshots/eco-vyapaar/landing.png",
+    screenshots: ["landing.png"],
     skills: {
       frontend: [
         PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.shadcn,
-        PROJECT_SKILLS.aceternity,
-        PROJECT_SKILLS.framerMotion,
+        PROJECT_SKILLS.react,
         PROJECT_SKILLS.tailwind,
-        PROJECT_SKILLS.spline,
+        PROJECT_SKILLS.shadcn,
       ],
       backend: [],
     },
+    live: "#",
+    github: "https://github.com/archittmittal/Eco-Vyapaar-Project",
     get content() {
       return (
         <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            Tech Empowerment for India&apos;s Street Vendors
+          </TypographyP>
           <TypographyP className="font-mono ">
-            Welcome to my digital playground, where creativity meets code in the
-            dopest way possible.
+            Eco-Vyapaar is a real-world solution to help India&apos;s small
+            street food vendors access affordable, trusted raw materials and
+            manage them smartly — even if they&apos;re not tech-savvy. It
+            bridges the gap between street food vendors and wholesale suppliers
+            with a focus on sustainable business practices.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <TypographyH3 className="my-4 mt-8">
-            Beautiful 3D Objects{" "}
+            Smart Marketplace
           </TypographyH3>
           <p className="font-mono mb-2">
-            Did you see that 3D keyboard modal? Yeah! I made that. That
-            interactive keyboard is being rendered in 3D on a webpage 🤯, and
-            pressing each keycap reveals a skill in a goofy way. It&apos;s like
-            typing, but make it art.
+            Connect directly with verified wholesale suppliers. Browse
+            thousands of products across categories like fresh vegetables,
+            grains, spices, dairy, and kitchen equipment with real-time
+            pricing and vendor comparison.
           </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/portfolio/landing.png`,
-              `${BASE_PATH}/portfolio/skills.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 ">Space Theme</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">
+            Vendor-Friendly Platform
+          </TypographyH3>
           <p className="font-mono mb-2">
-            Dark background + floating particles = out-of-this-world cool.
+            Designed specifically for street food vendors with simple ordering,
+            flexible payment options, delivery tracking, and multi-language
+            support for accessibility.
           </p>
-          <SlideShow images={[`${BASE_PATH}/portfolio/navbar.png`]} />
-          <TypographyH3 className="my-4 mt-8">Projects</TypographyH3>
-
+          <TypographyH3 className="my-4 mt-8">
+            Sustainable Supply Chain
+          </TypographyH3>
           <p className="font-mono mb-2">
-            My top personal and freelance projects — no filler, all killer.
+            Promotes eco-friendly practices with sustainable packaging options,
+            carbon-neutral delivery solutions, and a &quot;Donate for a Greener
+            Tomorrow&quot; initiative connecting kitchen waste to NGOs and cow
+            shelters.
           </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/portfolio/projects.png`,
-              `${BASE_PATH}/portfolio/project.png`,
-            ]}
-          />
+          <TypographyH3 className="my-4 mt-8">
+            Product Search &amp; Price Comparison
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Search products across multiple vendors, compare prices and
+            ratings side-by-side, and find the best deals by location —
+            all with an intuitive, mobile-friendly interface.
+          </p>
           <p className="font-mono mb-2 mt-8 text-center">
-            This site&apos;s not just a portfolio — it&apos;s a whole vibe.
+            🚧 Work in progress — actively being developed.
           </p>
         </div>
       );
     },
   },
   {
-    id: "ghostchat",
-    category: "Anonymous chat",
-    title: "GhostChat",
-    src: "/assets/projects-screenshots/ghostchat/1.png",
-    screenshots: ["1.png", "2.png", "3.png", "4.png"],
-    live: "https://ghostchat.vercel.app",
-    github:"https://github.com/Naresh-Khatri/GhostChat",
+    id: "patient-appointment-scheduling",
+    category: "Full Stack / Healthcare",
+    title: "Patient Appointment Scheduling System",
+    src: `${BASE_PATH}/patient-appointment-scheduling/landing.png`,
+    screenshots: ["landing.png"],
     skills: {
-      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.chakra],
-      backend: [PROJECT_SKILLS.supabase],
+      frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.js],
+      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.mysql],
     },
+    live: "#",
     get content() {
       return (
         <div>
-          <TypographyP className="font-mono ">
-            Ghostchat is your go-to spot for sending anonymous messages without
-            leaving a trace. Powered by Supabase, it&apos;s all about keeping things
-            low-key and secure. Whether you&apos;re sharing secrets, giving feedback,
-            or just having some fun, Ghostchat ensures your identity stays
-            hidden, while your voice is heard. Say what you want, without the
-            worry.
+          <TypographyP className="font-mono">
+            A DSA-based healthcare appointment scheduling system that
+            minimizes patient wait times using Greedy Algorithms, Dynamic
+            Programming, Priority Queues, and Predictive Analytics. Designed
+            to address real-world OPD challenges in Indian healthcare — long
+            wait times, overbooking conflicts, emergency delays, and
+            uneven doctor utilization.
           </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <SlideShow
-            images={[
-              `${BASE_PATH}/ghostchat/1.png`,
-              `${BASE_PATH}/ghostchat/2.png`,
-              `${BASE_PATH}/ghostchat/3.png`,
-              `${BASE_PATH}/ghostchat/4.png`,
-            ]}
+          <ProjectsLinks
+            live={""}
+            repo="https://github.com/archittmittal/Patient-Appointment-Scheduling-System"
           />
+          <TypographyH3 className="my-4 mt-8">
+            Core Algorithms
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Implements seven DSA strategies — Greedy slot allocation
+            (Activity Selection), Priority Queue (Min-Heap) for emergency
+            handling, Dynamic Programming for interval partitioning and
+            multi-doctor assignment, Hash Maps for O(1) patient UID
+            verification, Weighted Job Scheduling for variable case
+            complexity, and Load Balancing for even patient distribution.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Smart Queue Management
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Real-time live queue with priority-based ordering, emergency
+            override insertion, dynamic reheapifying, and predictive wait
+            time estimation combining current queue state (60%) with
+            historical data (40%). Includes no-show prediction to proactively
+            send reminders and fill cancelled slots from waitlists.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Role-Based Features
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Patients can book appointments, view queue position, and get
+            estimated wait times. Receptionists manage check-ins, call next
+            patients, and handle emergencies. Doctors view schedules with
+            complexity tags and configure buffer times. Admins manage
+            departments, configure algorithm parameters, and monitor
+            analytics dashboards.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Database &amp; API Design
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            MySQL database with 7 interconnected tables — appointments,
+            time_slots, live_queue, queue_history, doctor_schedules,
+            departments, and patients. 11 stored procedures implementing DSA
+            logic (heap insert, extract-min, greedy slot finder, no-show
+            predictor, load balancer). Full REST API with endpoints for
+            authentication, patients, doctors, appointments, queue
+            management, and load balancing.
+          </p>
+          <p className="font-mono mb-2 mt-8 text-center">
+            🚧 Work in progress — not ready yet, under active development.
+          </p>
         </div>
       );
     },
   },
   {
-    id: "jra",
-    category: "Result analyzer",
-    title: "JNTUA Results Analyzer",
-    src: "/assets/projects-screenshots/jra/1.png",
-    screenshots: ["1.png"],
-    live: "https://naresh-khatri.github.io/JNTUA-result-analyser-spa/#/",
+    id: "foodwaste-management-system",
+    category: "Full Stack / Social Impact",
+    title: "Food Waste Management System",
+    src: "/assets/projects-screenshots/foodwaste-management-system/landing.png",
+    screenshots: ["landing.png"],
     skills: {
-      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.vue],
-      backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.mongo,
-        PROJECT_SKILLS.express,
-        PROJECT_SKILLS.docker,
-      ],
+      frontend: [PROJECT_SKILLS.js],
+      backend: [PROJECT_SKILLS.python, PROJECT_SKILLS.mysql],
     },
+    live: "#",
+    github: "https://github.com/archittmittal/Foodwaste-Management-System.git",
     get content() {
       return (
         <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            Bridging the gap between food donors and receivers
+          </TypographyP>
           <TypographyP className="font-mono ">
-            JNTUA Results Analyzer was a revolutionary tool designed to simplify
-            and enhance the experience of accessing academic results. It served
-            as a powerful proxy between the JNTUA university results website and
-            its users, offering a range of features that made result analysis
-            faster and more efficient. Here&apos;s what made it stand out:
+            A comprehensive web platform built to connect food donors (individuals, restaurants, events) with receivers (NGOs, shelters, individuals in need). It aims to reduce food waste and streamline donation logistics through dedicated role-based dashboards and an efficient Flask/MySQL backend.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
-          <SlideShow images={[`${BASE_PATH}/jra/1.png`]} />
           <TypographyH3 className="my-4 mt-8">
-            Effortless Results Retrieval
+            Role-Based Dashboards
           </TypographyH3>
-          {/* Effortless Results Retrieval: */}
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              Search all your results using a single roll number, eliminating
-              the tedious task of sifting through thousands of rows on the
-              official site.
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">Class-Wise Results:</TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              class-wise results effortlessly by entering a roll number range.
-              No more manual searches or filtering.
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">Faculty Features:</TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              Faculty members could download batch results in Excel format,
-              making administrative tasks a breeze.
-            </li>
-          </ul>
+          <p className="font-mono mb-2">
+            Separate interfaces for donors to list surplus food items and for receivers to browse and request available food donations seamlessly.
+          </p>
           <TypographyH3 className="my-4 mt-8">
-            Enhanced Data Insights:
+            WASM Integration &amp; Data Structures
           </TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              Each result came with additional features including:
-              <ul className="list-disc font-mono ml-6">
-                <li>
-                  <strong>CGPA Calculations: </strong>Easily track your
-                  cumulative grade point average.
-                </li>
-                <li>
-                  <strong>Charts:</strong> Visualize your academic performance
-                  with comprehensive charts.
-                </li>
-                <li>
-                  <strong>Future Projections:</strong> Get insights into
-                  potential future outcomes based on current performance.
-                </li>
-                <li>
-                  <strong> Backlog Counts: </strong>Keep track of your backlog
-                  subjects at a glance.
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">Performance:</TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              The application was significantly faster and more efficient than
-              the official site, providing a smoother user experience.
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">Downfall:</TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              Unfortunately, as of May 2022, the tool stopped working due to the
-              introduction of CAPTCHA on the official JNTUA results site, which
-              disrupted the seamless functionality of the app. JNTUA Results
-              Analyzer transformed the way students and faculty interacted with
-              academic results, making it a must-have tool until its unexpected
-              shutdown.
-            </li>
-          </ul>
+          <p className="font-mono mb-2">
+            Incorporates a custom C-based quicksort algorithm compiled to WebAssembly (WASM) for high-performance sorting in the browser. Also implements fundamental data structures like stacks, queues, and linked lists in C.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Full-Stack Architecture
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Powered by a Python Flask backend and a robust MySQL database for managing users, food items, and donation requests securely with session management.
+          </p>
+          <p className="font-mono mb-2 mt-8 text-center">
+            🚧 Work in progress — actively being developed with new features.
+          </p>
         </div>
       );
     },

@@ -63,9 +63,9 @@ best deals on luxury brands and products. Join our savvy community of shoppers a
 function Page() {
   return (
     <>
-      <div className="container mx-auto md:px-[50px] xl:px-[150px] text-zinc-300 h-full">
+      <div className="container mx-auto md:px-[50px] xl:px-[150px] text-zinc-300 min-h-screen pb-20">
         <h1 className="text-4xl mt-[100px] mb-[50px]">Projects</h1>
-        <ul className="grid  md:grid-cols-2 lg:grid-cols-3 gap-10 place-content-around ">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
           {PROJECTS.map((project) => (
             <li
               className="w-[300px] h-[400px] border-[.5px] rounded-md border-zinc-600"

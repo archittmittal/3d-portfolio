@@ -301,6 +301,19 @@ export const EXPERIENCE: Experience[] = [
     ],
     skills: [],
   },
+  {
+    id: 5,
+    startDate: "2022",
+    endDate: "Present",
+    title: "Awards & Honors",
+    company: "Competitive Excellence",
+    description: [
+      "🏆 5X Hackathon Finalist — Consistently recognized for delivering high-impact, innovative tech solutions under intense time pressure.",
+      "🎙️ Runner-Up Debator (University Level) — Mastered the art of persuasive communication and structured logical arguments.",
+      "🏛️ Runner-Up National Youth Parliament — Recognized nationally for diplomatic discourse and policy articulation.",
+    ],
+    skills: [],
+  },
 ];
 
 export const themeDisclaimers = {

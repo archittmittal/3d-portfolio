@@ -9,10 +9,13 @@ import { ReactNode } from "react";
 import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from "react-icons/ri";
 import {
   SiChakraui,
+  SiChartdotjs,
   SiDocker,
   SiExpress,
   SiFirebase,
+  SiFlask,
   SiJavascript,
+  SiLeaflet,
   SiMongodb,
   SiMysql,
   SiPostgresql,
@@ -235,6 +238,24 @@ const PROJECT_SKILLS = {
     bg: "black",
     fg: "white",
     icon: <SiMysql />,
+  },
+  flask: {
+    title: "Flask",
+    bg: "black",
+    fg: "white",
+    icon: <SiFlask />,
+  },
+  leaflet: {
+    title: "Leaflet",
+    bg: "black",
+    fg: "white",
+    icon: <SiLeaflet />,
+  },
+  chartjs: {
+    title: "Chart.js",
+    bg: "black",
+    fg: "white",
+    icon: <SiChartdotjs />,
   },
 };
 export type Project = {
@@ -601,6 +622,100 @@ const projects: Project[] = [
           </p>
           <p className="font-mono mb-2 mt-8 text-center">
             🚧 Work in progress — actively being developed with new features.
+          </p>
+        </div>
+      );
+    },
+  },
+  {
+    id: "traffic-ai",
+    category: "AI / Smart City",
+    title: "TrafficAI: Intelligent Traffic Management",
+    src: "/assets/projects-screenshots/traffic-ai/landing.png",
+    screenshots: ["landing.png"],
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.next,
+        PROJECT_SKILLS.react,
+        PROJECT_SKILLS.tailwind,
+        PROJECT_SKILLS.framerMotion,
+        PROJECT_SKILLS.leaflet,
+        PROJECT_SKILLS.chartjs,
+      ],
+      backend: [
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.flask,
+        PROJECT_SKILLS.sockerio,
+      ],
+    },
+    live: "https://ai-traffic-flow-optimizer-and-emerg.vercel.app",
+    github:
+      "https://github.com/archittmittal/AI-Traffic-Flow-Optimizer-and-Emergency-Grid",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            AI-Powered Smart City Traffic Command Center
+          </TypographyP>
+          <TypographyP className="font-mono ">
+            A real-time AI-powered traffic management dashboard designed for
+            city traffic authorities to monitor intersections, control signals,
+            manage emergency corridors, and detect incidents — all from a
+            single command center interface. Built for the India Innovates
+            hackathon to tackle India&apos;s ₹1.5 lakh crore annual
+            congestion losses.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <TypographyH3 className="my-4 mt-8">
+            Real-Time Traffic Monitoring
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Live city map with color-coded intersections (green/yellow/red),
+            AI-powered vehicle detection with bounding boxes, and lane-wise
+            density heatmaps — providing a bird&apos;s-eye view of the
+            entire traffic network.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            AI Signal Control &amp; Override
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Reinforcement Learning-based signal timing recommendations with
+            manual override controls (Force Green / Pause / Reset), live
+            countdown timers, and per-intersection signal efficiency scoring.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Emergency Corridor Management
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Real-time emergency vehicle tracking with green corridor
+            activation/deactivation, route visualization on the map, and
+            ETA calculation — ensuring fastest possible emergency response.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Incident Detection &amp; Smart Rerouting
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Automatic accident detection alerts, road blockage identification,
+            congestion spike detection, and AI-suggested alternate routes to
+            minimize disruption.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Predictive Analytics &amp; Insights
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Congestion trends by hour and zone, signal efficiency analytics,
+            emergency response time tracking, and AI-powered traffic
+            prediction with a 6-hour horizon — enabling proactive traffic
+            management.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Real-Time Architecture
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            WebSocket-based live updates via Socket.IO, REST API backend
+            powered by Flask, background traffic simulation engine with
+            multi-channel event system — delivering sub-second updates
+            across the entire dashboard.
           </p>
         </div>
       );

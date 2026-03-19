@@ -60,7 +60,7 @@ export default function RootLayout({
     <html lang="en" className={[inter.variable, archivoBlack.variable, "font-display"].join(" ")} suppressHydrationWarning>
       <head>
         {/* Preload critical 3D asset */}
-        <link rel="preload" href="/assets/skills-keyboard.spline" as="fetch" crossOrigin="anonymous" />
+        <link rel="preload" href="/assets/skills-keyboard.splinecode" as="fetch" />
         <Script
           defer
           src={process.env.UMAMI_DOMAIN}

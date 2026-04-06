@@ -92,7 +92,4 @@ Deployed on **Vercel**. Push to main for automatic deployments.
 
 ---
 
-## 📄 Credits
-
-Based on the open-source [3D Portfolio template](https://github.com/Naresh-Khatri/3d-portfolio) by Naresh Khatri.
 

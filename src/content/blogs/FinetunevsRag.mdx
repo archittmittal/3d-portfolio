@@ -1,29 +1,99 @@
+title: "Fine-Tuning Is Overrated — RAG Is All You Need (For Now)"
+description: "Most teams jump straight to fine-tuning before they've earned it. Here's the uncomfortable truth about why that's almost always the wrong call."
+publishedAt: "2026-05-04"
+summary: "Most teams jump straight to fine-tuning before they've earned it. Here's the uncomfortable truth about why that's almost always the wrong call."
+author: "Archit Mittal"
+tags: ["machine-learning", "RAG", "LLMs"]
+
+Picture this: it's sprint planning. Someone says "our LLM doesn't know about our internal docs." Before the sentence ends, someone else says "we should fine-tune." The room nods. The ticket gets created. Three weeks and $4,000 later — the model still hallucinates. It just does it with more confidence now.
+
+Sound familiar? It should. This is the story of roughly half the AI projects I've watched go sideways in the last two years. Fine-tuning has become the default response to every LLM limitation — and that reflex is costing teams time, money, and credibility.
+
+Let me argue for an uncomfortable position: **for most real-world use cases, Retrieval-Augmented Generation will outperform fine-tuning** — and do it in a fraction of the time and cost. This isn't a knock on fine-tuning. It's a knock on *premature* fine-tuning.
+
 ---
-title: "Achieving Milestone: Adding Blogs Section"
-publishedAt: "2024-05-27"
-summary: "A humorous take on the monumental task of adding a blog section to my portfolio."
-author: "Naresh Khatri"
-tags: ["milestone", "humor", "portfolio"]
+
+## Why do we reach for fine-tuning first?
+
+Fine-tuning feels powerful. It's the closest analogy to how humans learn — repeated exposure, internalization, behavior change. When a model gives you a wrong answer, it's intuitive to think: "it doesn't know this yet, we need to teach it."
+
+But here's the thing. The model probably *does* know how to reason. What it lacks is access to your specific context — your docs, your policies, your data that didn't exist when it was trained. That's a **retrieval problem**, not a **learning problem**.
+
+> **The core confusion:** Fine-tuning changes *how a model thinks*. RAG changes *what a model can see*. Most teams mistake the second for the first — and reach for the expensive, fragile solution to fix a cheap, solvable problem.
+
 ---
 
-# Achieving Milestone: Adding Blogs Section
+## What RAG actually gives you
 
-Finally! The day has come. The stars have aligned, the code has compiled, and I have successfully added a blog section to my portfolio. It's a small step for a developer, but a giant leap for my procrastination.
+RAG works by chunking your documents, embedding them into a vector store, and retrieving the most relevant chunks at query time — injecting them as context before the model generates a response. It's elegant, and it maps directly to the problem most teams actually have.
 
-## The Journey
+| | Fine-Tuning | RAG |
+|---|---|---|
+| **Time to prototype** | Weeks | Days |
+| **Cost** | $500–$10,000+ per run | Embedding + API costs only |
+| **Knowledge freshness** | Frozen at training time | Update docs, done |
+| **Debuggability** | Hard — retrain and hope | Traceable to source chunks |
+| **Best for** | Style, tone, new task formats | Factual recall, grounding |
 
-It started with a simple thought: "I should have a blog." That thought was immediately followed by a year of overthinking the design, 3 months of debating between a CMS and Markdown, and 2 weeks of actually writing code.
+The updatability point is underrated. With fine-tuning, your model's knowledge is frozen at training time. Your product changes. Policies change. Fine-tune again. More money, more time, more drift. With RAG, you update a document in your knowledge base and the model's next response reflects it — immediately.
 
-### Why Space Theme?
+---
 
-Because why not? If I'm going to write about code, I might as well do it while floating in the void of the internet. Plus, dark mode is default in space.
+## The real cost gap nobody talks about
 
-## What to Expect?
+Here's a rough approximation for a typical mid-sized internal knowledge assistant — say, a company with 500 documents and moderate query volume:
 
-- **Tech Rants**: Opinions on frameworks I barely use.
-- **Tutorials**: How to center a div (spoiler: use flexbox).
-- **Life Updates**: Mostly about how much coffee I consumed.
+- **RAG** (setup + 3 months ops): ~$400–800
+- **Fine-tuning** (initial run + 2 retrains): ~$5,000–15,000
 
-## Conclusion
+This gap gets worse when you factor in engineering hours. RAG pipelines are debuggable. You can see which chunks got retrieved. You can trace a hallucination back to a bad chunk and fix it. A fine-tuned model that's wrong? You're retraining, hoping, and praying.
 
-Stay tuned for more content. Or don't. I'm just happy this page renders without errors. 🚀
+> "The question isn't 'is fine-tuning better?' — it's 'what problem are you actually solving?' Nine times out of ten, it's a context problem. Not a capability problem."
+
+---
+
+## When RAG starts to break
+
+RAG isn't magic. It has a well-defined failure surface, and knowing it is what separates engineers who get good results from those who give up and reach for fine-tuning.
+
+| Scenario | Use RAG? | Why |
+|---|---|---|
+| Answer internal policy questions | Yes | Retrieval + grounding is ideal |
+| Respond in a specific tone or persona | Yes | System prompt + examples handles this |
+| Reduce verbose, generic outputs | Yes | Few-shot prompting in context |
+| Learn a new task format (structured output) |  Maybe not | Fine-tune or function calling worth exploring |
+| Encode rare domain knowledge (clinical, legal) |  Partial | RAG + fine-tune hybrid may be needed |
+| Low-latency edge inference, no retrieval step |  No | Fine-tune for compressed, deployed models |
+
+Notice the pattern. Fine-tuning starts to genuinely earn its complexity only when the problem is about *capability or format*, not about *knowledge*. If you're asking "why doesn't it know X?" — that's RAG's domain. If you're asking "why can't it do X?" — that's where fine-tuning can help.
+
+---
+
+## The "for now" caveat is real
+
+The title of this piece includes "for now" on purpose. Context windows are expanding fast — 128k, 200k, 1M tokens. As they grow, the RAG pipeline gets simpler (less chunking, less retrieval precision needed). Fine-tuning will likely matter more at the very high end — models you control, deploy at edge, or need to specialize deeply.
+
+But we're in 2026. The average team's use case — customer support, internal search, code assist, documentation Q&A — is comfortably inside RAG territory. Reaching for fine-tuning before thoroughly exhausting retrieval, prompting, and context engineering is like buying a racing engine for a grocery run.
+
+---
+
+## A practical starting point
+
+If you're evaluating whether to fine-tune, answer these three questions honestly before you spin up a training job:
+
+**1. Can I solve this by adding better context to the prompt?**
+Try it first. Seriously. Most teams underestimate how far a well-crafted system prompt + few-shot examples can take you.
+
+**2. Have I built a RAG pipeline and measured its accuracy on evals?**
+Not vibes — actual evals. Build a golden test set of 50–100 questions, run your RAG pipeline against them, measure precision and recall. Only then do you have a real baseline to beat.
+
+**3. Is my problem about knowledge the model doesn't have — or capability it can't perform?**
+Knowledge → RAG. Capability → fine-tune. This distinction alone will save you weeks.
+
+If you can answer "no, yes, capability" to those three — go fine-tune with my blessing. You've earned it. But I'd bet most teams reading this are still at question one.
+
+---
+
+The irony of the fine-tuning reflex is that it's actually a form of learned helplessness — it's easier to throw training runs at a problem than to deeply understand what the model actually needs. RAG forces you to understand your data, your queries, and your failure modes. That understanding is valuable regardless of what you do next.
+
+*Fine-tuning isn't the enemy. Premature fine-tuning is. Build the RAG pipeline, run the evals, find the ceiling — and then, if you still need more, you'll know exactly what you're fine-tuning for.*

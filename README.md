@@ -1,4 +1,4 @@
-# 🚀 Archit Mittal - 3D Portfolio
+# 🚀 Archit Mittal's - 3D Portfolio
 
 A modern, interactive developer portfolio featuring 3D animations, smooth transitions, and a space-themed aesthetic. Built with Next.js, featuring an interactive 3D keyboard where each keycap represents a skill.
 

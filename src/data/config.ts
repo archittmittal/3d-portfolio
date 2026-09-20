@@ -38,5 +38,6 @@ const config = {
     facebook: "",
     github: "https://github.com/archittmittal",
   },
+  resume: "https://drive.google.com/file/d/1znQ-Hx640XUJBfTLPSWXS4H3ysbzvO6r/view?usp=sharing",
 };
 export { config };

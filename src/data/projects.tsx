@@ -37,6 +37,7 @@ import {
   SiDart,
   SiC,
   SiCplusplus,
+  SiPytorch,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { TbBrandFramerMotion } from "react-icons/tb";
@@ -308,6 +309,12 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <SiDart />,
   },
+  pytorch: {
+    title: "PyTorch (Deep Learning)",
+    bg: "black",
+    fg: "white",
+    icon: <SiPytorch />,
+  },
 };
 
 export type Project = {
@@ -537,6 +544,56 @@ const projects: Project[] = [
           </TypographyH3>
           <p className="font-mono mb-2">
             Clean Flutter / Dart application providing real-time acoustic spectrogram visualization, bitrate configuration, and reliable device pairing.
+          </p>
+        </div>
+      );
+    },
+  },
+  {
+    id: "physics-edge-cloud",
+    category: "Edge AI / Embedded Systems",
+    title: "PhysEdge-Cloud: Anomaly Detection",
+    src: "/assets/projects-screenshots/physics-edge-cloud/landing.png",
+    screenshots: ["landing.png"],
+    skills: {
+      frontend: [PROJECT_SKILLS.cpp, PROJECT_SKILLS.python],
+      backend: [PROJECT_SKILLS.pytorch, PROJECT_SKILLS.docker],
+    },
+    live: "#",
+    github: "https://github.com/Anshul-5/Physics-Edge-Cloud-",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            Physics-Informed Edge-to-Cloud Video Anomaly Detection
+          </TypographyP>
+          <TypographyP className="font-mono ">
+            PhysEdge-Cloud is an uncertainty-calibrated, 9-layer video anomaly detection framework that balances real-time edge latency, cloud bandwidth costs, and privacy constraints. Utilizing physics-based algorithms (metric kinematics, directional motion entropy) on sub-watt ESP32-S3 microcontrollers, it filters 80–90% of normal scene activity before escalating to Jetson nodes and cloud GPU clusters.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <TypographyH3 className="my-4 mt-8">
+            Tier 1: ESP32-S3 Edge Gate (Sub-Watt MCU)
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Runs fixed-point Q8.8 downscaling, Block SAD optical flow (10x7 grid), planar homography, and jerk kinematics on an ESP32-S3—discarding normal frames at zero PII egress.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Tier 2: Regional Node (NVIDIA Jetson)
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Calibrated Recursive Log-Odds Fusion (CROP) validates skeletal motion and pose streams, intelligently abstaining when detection confidence is low.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Tier 3: Central Cloud GPU Cluster
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Deep contextual adjudication combining Graph Spectral Instability, Memory-Augmented Autoencoders (Memory-AE), and Conformal Prediction for provable uncertainty guarantees and forensic audit trails.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            End-to-End Privacy &amp; Cost Efficiency
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Drastically cuts cloud ingestion and compute costs by 85%+ while strictly preserving privacy by never uploading raw video feeds under normal operating conditions.
           </p>
         </div>
       );

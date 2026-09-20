@@ -349,6 +349,65 @@ const projects: Project[] = [
     },
   },
   {
+    id: "automaintainer",
+    category: "Autonomous AI / DevTools",
+    title: "AutoMaintainer: Autonomous AI Engineering Team",
+    src: "/assets/projects-screenshots/automaintainer/landing.png",
+    screenshots: ["landing.png"],
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.ts,
+        PROJECT_SKILLS.next,
+        PROJECT_SKILLS.tailwind,
+        PROJECT_SKILLS.supabase,
+      ],
+      backend: [
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.fastapi,
+        PROJECT_SKILLS.docker,
+      ],
+    },
+    live: "https://huggingface.co/spaces/purvansh01/AutoMaintainer",
+    github: "https://github.com/PxA-Labs/AutoMaintainer",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            An Always-On Autonomous AI Software Engineering Team
+          </TypographyP>
+          <TypographyP className="font-mono ">
+            AutoMaintainer is an autonomous multi-agent software engineering system that operates natively inside GitHub repositories. Built with LangGraph, FastAPI, Next.js, and Groq LPU inference, it coordinates a 5-agent hierarchy to brainstorm ideas, create GitHub Issues, write code, submit Pull Requests, perform automated reviews, self-correct bugs, and merge verified code into production.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <TypographyH3 className="my-4 mt-8">
+            5-Agent Specialized Hierarchy
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Coordinates Architect, Visionary, Reviewer, Implementer, and Maintainer agents to autonomously plan, implement, and verify complex codebases.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Native GitHub Lifecycle Operations
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Autonomous execution across GitHub Issues, branches, and PR reviews. Implementer agents automatically read review comments and push iterative fixes until PR passes.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Supabase Real-Time Architecture &amp; Web IDE
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            High-performance Supabase Realtime pub/sub event stream paired with an in-browser VS Code-style Web IDE and interactive PTY terminal connecting directly to backend runners.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Sub-20s Execution via Groq LPU
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Ultra-fast LLM inference delivering complete software cycles—from architecture planning to merged pull request—in under 20 seconds.
+          </p>
+        </div>
+      );
+    },
+  },
+  {
     id: "patient-appointment-scheduling",
     category: "Full Stack / Healthcare",
     title: "Patient Appointment Scheduling System",

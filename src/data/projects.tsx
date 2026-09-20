@@ -32,6 +32,7 @@ import {
   SiVuedotjs,
   SiFastapi,
   SiSqlite,
+  SiPrometheus,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { TbBrandFramerMotion } from "react-icons/tb";
@@ -273,6 +274,12 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <SiSqlite />,
   },
+  prometheus: {
+    title: "Prometheus (Observability)",
+    bg: "black",
+    fg: "white",
+    icon: <SiPrometheus />,
+  },
 };
 
 export type Project = {
@@ -402,6 +409,56 @@ const projects: Project[] = [
           </TypographyH3>
           <p className="font-mono mb-2">
             Ultra-fast LLM inference delivering complete software cycles—from architecture planning to merged pull request—in under 20 seconds.
+          </p>
+        </div>
+      );
+    },
+  },
+  {
+    id: "reliadl",
+    category: "Systems / Resilient Networking",
+    title: "ReliaDL: Resilient Parallel Download Engine",
+    src: "/assets/projects-screenshots/reliadl/landing.png",
+    screenshots: ["landing.png"],
+    skills: {
+      frontend: [PROJECT_SKILLS.prometheus],
+      backend: [PROJECT_SKILLS.python, PROJECT_SKILLS.docker],
+    },
+    live: "https://pypi.org/project/reliadl/",
+    github: "https://github.com/PxA-Labs/ReliaDL",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            Production-Grade Resilient Download &amp; Streaming Engine
+          </TypographyP>
+          <TypographyP className="font-mono ">
+            ReliaDL is a production-grade, fault-tolerant parallel file download framework and high-throughput streaming engine designed for high-reliability enterprise pipelines and non-stationary channels. It combines stochastic network optimization, cryptographic chunk integrity verification, corporate proxy tunneling, async rate limiting, and Prometheus observability.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <TypographyH3 className="my-4 mt-8">
+            Cryptographic Integrity &amp; Segment Localization
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Per-chunk SHA-256 validation, homomorphic LtHash aggregation, and 4 KB Merkle tree segment localization to detect and repair corrupt byte ranges instantly without redownloading entire files.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Corporate Proxy Tunneling
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            SOCKS5 (RFC 1928 / 1929) and HTTP CONNECT proxy tunneling with destination-based TLS verification and remote DNS resolution.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Stochastic Network Optimization &amp; Pacing
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Lyapunov-based dynamic chunk sizing (AdaChunk) and restless multi-armed bandit (Whittle index) scheduling paired with Token Bucket rate limiting to eliminate thundering herd spikes.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Enterprise Cloud Adapters &amp; Telemetry
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Plug-and-play streaming adapters for AWS S3, GCS, and Azure Blob Storage alongside native Prometheus metric exporters and structured JSON logging.
           </p>
         </div>
       );

@@ -39,10 +39,7 @@ const config = {
     github: "https://github.com/archittmittal",
     substack: "https://substack.com/@architmittal1",
   },
-<<<<<<< HEAD
   substackFeed: "https://architmittal1.substack.com/feed",
-=======
->>>>>>> origin/main
   resume: "https://drive.google.com/file/d/1znQ-Hx640XUJBfTLPSWXS4H3ysbzvO6r/view?usp=sharing",
 };
 export { config };

@@ -33,6 +33,10 @@ import {
   SiFastapi,
   SiSqlite,
   SiPrometheus,
+  SiFlutter,
+  SiDart,
+  SiC,
+  SiCplusplus,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { TbBrandFramerMotion } from "react-icons/tb";
@@ -280,6 +284,30 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <SiPrometheus />,
   },
+  c: {
+    title: "C (Systems & DSP)",
+    bg: "black",
+    fg: "white",
+    icon: <SiC />,
+  },
+  cpp: {
+    title: "C++ (Embedded / Low-Latency)",
+    bg: "black",
+    fg: "white",
+    icon: <SiCplusplus />,
+  },
+  flutter: {
+    title: "Flutter (Cross-Platform UI)",
+    bg: "black",
+    fg: "white",
+    icon: <SiFlutter />,
+  },
+  dart: {
+    title: "Dart (Client Core)",
+    bg: "black",
+    fg: "white",
+    icon: <SiDart />,
+  },
 };
 
 export type Project = {
@@ -459,6 +487,56 @@ const projects: Project[] = [
           </TypographyH3>
           <p className="font-mono mb-2">
             Plug-and-play streaming adapters for AWS S3, GCS, and Azure Blob Storage alongside native Prometheus metric exporters and structured JSON logging.
+          </p>
+        </div>
+      );
+    },
+  },
+  {
+    id: "ultrasonic-phy-layer",
+    category: "Acoustic Networking / DSP",
+    title: "Soundwave: Ultrasonic PHY Layer",
+    src: "/assets/projects-screenshots/ultrasonic-phy-layer/landing.png",
+    screenshots: ["landing.png"],
+    skills: {
+      frontend: [PROJECT_SKILLS.flutter, PROJECT_SKILLS.dart],
+      backend: [PROJECT_SKILLS.c, PROJECT_SKILLS.cpp],
+    },
+    live: "#",
+    github: "https://github.com/PxA-Labs/ultrasonic-phy-layer",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            Near-Field Inaudible Acoustic Communication Layer
+          </TypographyP>
+          <TypographyP className="font-mono ">
+            Soundwave is an experimental physical layer (PHY) communication engine designed to transmit digital bitstreams between air-gapped devices using inaudible high-frequency ultrasonic acoustic waves (18 kHz – 22 kHz). Built with a high-performance C/C++ DSP core (KissFFT) and a cross-platform Flutter UI.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <TypographyH3 className="my-4 mt-8">
+            Dual Modulation Schemes (CSS &amp; OFDM)
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Combines Chirp Spread Spectrum (CSS) with Linear Frequency Modulation for maximum Doppler tolerance and synchronization in noisy environments, with Orthogonal Frequency Division Multiplexing (OFDM) for high-rate data payloads.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            C/C++ DSP Engine &amp; KissFFT
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            High-speed DSP core utilizing KissFFT for fast Fourier transform processing, matched filter correlation, and channel equalization on commodity microphone and speaker hardware.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Robust Error Correction (FEC)
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Reed-Solomon Forward Error Correction (RS-FEC) and CRC integrity validation ensure error-free transmission across acoustic multipath fading and ambient room noise.
+          </p>
+          <TypographyH3 className="my-4 mt-8">
+            Cross-Platform Mobile Interface
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Clean Flutter / Dart application providing real-time acoustic spectrogram visualization, bitrate configuration, and reliable device pairing.
           </p>
         </div>
       );

@@ -70,7 +70,7 @@ const ExperienceCard = ({
               </div>
             </div>
             <Badge variant="secondary" className="w-fit font-mono text-xs font-normal">
-              {experience.startDate} - {experience.endDate}
+              {[experience.startDate, experience.endDate].filter(Boolean).join(" - ")}
             </Badge>
           </div>
         </CardHeader>
@@ -80,6 +80,17 @@ const ExperienceCard = ({
               <li key={i}>{point}</li>
             ))}
           </ul>
+
+          {experience.link && (
+            <a
+              href={experience.link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-sm font-medium text-primary hover:underline"
+            >
+              {experience.link.label} →
+            </a>
+          )}
 
           <div className="flex flex-wrap gap-2">
             {experience.skills.map((skillName) => {

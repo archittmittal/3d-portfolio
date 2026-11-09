@@ -5,9 +5,15 @@ import { cn } from "@/lib/utils";
 import SectionWrapper from "../ui/section-wrapper";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { GraduationCap, Users, Code2, Lightbulb } from "lucide-react";
+import { Brain, GraduationCap, Users, FlaskConical } from "lucide-react";
 
 const ABOUT_CONTENT = [
+  {
+    icon: Brain,
+    title: "What I Build",
+    content:
+      "I build AI systems that have to work outside a notebook: agents, the tooling that watches them, and the models underneath. Currently an AI Builder intern (R&D) at Razorpay and a 10x national hackathon finalist.",
+  },
   {
     icon: GraduationCap,
     title: "Education",
@@ -15,22 +21,16 @@ const ABOUT_CONTENT = [
       "B.Tech Computer Science and Engineering student at Graphic Era Hill University, graduating in 2028. Focus on software development, open source contribution, and research driven problem solving.",
   },
   {
+    icon: FlaskConical,
+    title: "Research & Open Source",
+    content:
+      "Co-founder of PxA Labs, an open-source AI research and engineering group with 100+ GitHub stars across its projects. Co-author of a preprint on real-time wavefront reconstruction (Project RIPRA), with merged pull requests in sktime.",
+  },
+  {
     icon: Users,
     title: "Leadership",
     content:
-      "Completed leadership tenure with AIESEC in India as Senior Manager Incoming Social Sector. Worked on social impact initiatives, partnerships, and project execution.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Community",
-    content:
-      "Active member of the IEEE Student Branch at GEHU, participating in technical and research oriented activities.",
-  },
-  {
-    icon: Code2,
-    title: "Open Source",
-    content:
-      "Contributes to open source projects and builds practical software solutions that address real problems. Interests include scalable systems, collaborative development, and technology driven innovation.",
+      "Treasurer of the IEEE Student Branch at GEHU. Previously led business development and sponsorships at AIESEC in India, and served as Senior Manager Incoming Social Sector.",
   },
 ];
 

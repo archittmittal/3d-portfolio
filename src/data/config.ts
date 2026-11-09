@@ -1,14 +1,16 @@
 const config = {
-  title: "Archit Mittal | Full-Stack Developer",
+  title: "Archit Mittal | AI/ML Engineer",
   description: {
-    long: "Explore the portfolio of Archit Mittal, a full-stack developer and creative technologist specializing in interactive web experiences, 3D animations, and innovative projects. Let's build something amazing together!",
+    long: "Explore the portfolio of Archit Mittal, an AI/ML engineer building AI agents, the tooling that watches them, and the models underneath. Let's build something amazing together!",
     short:
-      "Discover the portfolio of Archit Mittal, a full-stack developer creating interactive web experiences and innovative projects.",
+      "Discover the portfolio of Archit Mittal, an AI/ML engineer building AI agents, observability tooling, and machine learning models.",
   },
   keywords: [
     "Archit Mittal",
     "portfolio",
-    "full-stack developer",
+    "AI/ML engineer",
+    "machine learning",
+    "AI agents",
     "creative technologist",
     "web development",
     "3D animations",
@@ -33,7 +35,7 @@ const config = {
   },
   social: {
     twitter: "https://x.com/archittmittal",
-    linkedin: "https://www.linkedin.com/in/archit-mittal-010638305/",
+    linkedin: "https://www.linkedin.com/in/archittmittal/",
     instagram: "https://www.instagram.com/archittmittal",
     facebook: "",
     github: "https://github.com/archittmittal",

@@ -40,6 +40,7 @@ export function getBlogPosts() {
 
 export function getBlogPost(slug: string) {
   const filePath = path.join(process.cwd(), "src/content/blogs", `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) return null;
   const { data, content } = readMDXFile(filePath);
   return {
     metadata: data as Metadata,

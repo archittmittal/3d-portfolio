@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getBlogPosts } from "@/lib/mdx";
 import { getSubstackPosts } from "@/lib/substack";
@@ -19,9 +20,18 @@ import { config } from "@/data/config";
 
 export const revalidate = 3600; // Auto-revalidate every hour for fresh Substack posts
 
-export const metadata = {
-  title: "Blog | Archit Mittal",
-  description: "Thoughts, engineering essays, and updates synced with Substack.",
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Engineering essays by Archit Mittal on software, systems, and AI — including posts synced from Substack.",
+  alternates: { canonical: "/blogs" },
+  openGraph: {
+    title: `Blog | ${config.author}`,
+    description:
+      "Engineering essays on software, systems, and AI — including posts synced from Substack.",
+    url: "/blogs",
+    type: "website",
+  },
 };
 
 type UnifiedPost = {

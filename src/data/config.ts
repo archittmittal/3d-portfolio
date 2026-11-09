@@ -40,6 +40,8 @@ const config = {
     facebook: "",
     github: "https://github.com/archittmittal",
     substack: "https://substack.com/@architmittal1",
+    huggingface: "https://huggingface.co/archittmittal",
+    orcid: "https://orcid.org/0009-0005-1806-1033",
   },
   substackFeed: "https://architmittal1.substack.com/feed",
   resume: "https://drive.google.com/file/d/1znQ-Hx640XUJBfTLPSWXS4H3ysbzvO6r/view?usp=sharing",

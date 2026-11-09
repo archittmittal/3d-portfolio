@@ -11,7 +11,8 @@ import {
 import { usePreloader } from "../preloader";
 import { BlurIn, BoxReveal } from "../reveal-animations";
 import ScrollDownIcon from "../scroll-down-icon";
-import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
+import { SiGithub, SiLinkedin, SiOrcid, SiX } from "react-icons/si";
+import HuggingFaceIcon from "../social/hugging-face-icon";
 import { config } from "@/data/config";
 
 import SectionWrapper from "../ui/section-wrapper";
@@ -76,7 +77,7 @@ const HeroSection = () => {
                       "cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
                     )}
                   >
-                    A Full Stack Web Developer
+                    An AI/ML Engineer
                   </p>
                 </BlurIn>
               </div>
@@ -111,7 +112,7 @@ const HeroSection = () => {
                       <p>pls 🥹 🙏</p>
                     </TooltipContent>
                   </Tooltip>
-                  <div className="flex items-center h-full gap-2">
+                  <div className="flex flex-wrap items-center h-full gap-2">
                     <Link
                       href={config.social.twitter}
                       target="_blank"
@@ -136,6 +137,26 @@ const HeroSection = () => {
                     >
                       <Button variant={"outline"}>
                         <SiLinkedin size={24} />
+                      </Button>
+                    </Link>
+                    <Link
+                      href={config.social.huggingface}
+                      target="_blank"
+                      className="cursor-can-hover"
+                      aria-label="Hugging Face"
+                    >
+                      <Button variant={"outline"}>
+                        <HuggingFaceIcon size={24} />
+                      </Button>
+                    </Link>
+                    <Link
+                      href={config.social.orcid}
+                      target="_blank"
+                      className="cursor-can-hover"
+                      aria-label="ORCID"
+                    >
+                      <Button variant={"outline"}>
+                        <SiOrcid size={24} />
                       </Button>
                     </Link>
                   </div>

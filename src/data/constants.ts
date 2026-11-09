@@ -253,9 +253,48 @@ export type Experience = {
   company: string;
   description: string[];
   skills: SkillNames[];
+  link?: { label: string; href: string };
 };
 
 export const EXPERIENCE: Experience[] = [
+  {
+    id: 6,
+    startDate: "Oct 2026",
+    endDate: "Present",
+    title: "AI Builder Intern (R&D)",
+    company: "Razorpay",
+    description: ["Working on a detection system for payouts."],
+    skills: [],
+  },
+  {
+    id: 7,
+    startDate: "Jun 2026",
+    endDate: "Present",
+    title: "Web Developer Intern",
+    company: "Innspire Media",
+    description: [
+      "Working across MongoDB, Express.js, React and Node.js, with Google Cloud and Figma.",
+    ],
+    skills: [
+      SkillNames.MONGODB,
+      SkillNames.EXPRESS,
+      SkillNames.REACT,
+      SkillNames.NODEJS,
+      SkillNames.GCP,
+    ],
+  },
+  {
+    id: 8,
+    startDate: "May 2026",
+    endDate: "Present",
+    title: "Co-Founder",
+    company: "PxA Labs",
+    description: [
+      "Co-founded an open-source group working on agentic AI, speech recognition, reinforcement learning and bioinformatics, with 100+ GitHub stars and 40+ forks across its public repositories.",
+      "Our work includes AutoMaintainer, which gives AI agents real engineering work inside GitHub repos, and AgentsScope, which shows what those agents did.",
+    ],
+    skills: [],
+  },
   {
     id: 1,
     startDate: "Aug 2025",
@@ -292,12 +331,13 @@ export const EXPERIENCE: Experience[] = [
   },
   {
     id: 4,
-    startDate: "",
+    startDate: "Sep 2025",
     endDate: "Present",
-    title: "Spokesperson & Tech Team",
-    company: "IEEE Student Member",
+    title: "Treasurer",
+    company: "IEEE Student Branch, GEHU",
     description: [
-      "Representing IEEE as spokesperson and contributing to the tech team.",
+      "Serving as Treasurer of the student branch since Oct 2026.",
+      "Previously Researcher and Tech Team member (Sep 2025 – Oct 2026).",
     ],
     skills: [],
   },
@@ -308,11 +348,29 @@ export const EXPERIENCE: Experience[] = [
     title: "Awards & Honors",
     company: "Competitive Excellence",
     description: [
-      "🏆 5X Hackathon Finalist — Consistently recognized for delivering high-impact, innovative tech solutions under intense time pressure.",
+      "🏆 10X National Hackathon Finalist — Consistently recognized for delivering high-impact, innovative tech solutions under intense time pressure.",
+      "🔥 National Finalist, Meta PyTorch OpenEnv Hackathon — Scaler School of Technology, Apr 2026.",
+      "🚀 Finalist, GDGoC Praxis 2.0 — Google Developer Groups, Mar 2026.",
       "🎙️ Runner-Up Debator (University Level) — Mastered the art of persuasive communication and structured logical arguments.",
       "🏛️ Runner-Up National Youth Parliament — Recognized nationally for diplomatic discourse and policy articulation.",
     ],
     skills: [],
+  },
+  {
+    id: 9,
+    startDate: "Jul 2026",
+    endDate: "",
+    title:
+      "Algorithm Development and Optimization for Real-Time Wavefront Reconstruction and Atmospheric Turbulence Characterization from Shack–Hartmann Wavefront Sensor Time-Series Data",
+    company: "Publication · Zenodo (preprint)",
+    description: [
+      "Co-author of this preprint from Project RIPRA at the ISRO Bharatiya Antariksh Hackathon 2026.",
+    ],
+    skills: [],
+    link: {
+      label: "Read the paper",
+      href: "https://doi.org/10.5281/zenodo.21106033",
+    },
   },
 ];
 

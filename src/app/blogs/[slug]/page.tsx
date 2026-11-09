@@ -1,4 +1,7 @@
 import React from "react";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { config } from "@/data/config";
 import { getBlogPost, getBlogPosts } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import ScrollProgress from "@/components/ui/scroll-progress";
@@ -14,11 +17,41 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export const dynamicParams = false;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const post = getBlogPost(params.slug);
+  if (!post) return {};
+  const { title, summary, publishedAt, tags, author, image } = post.metadata;
+  const url = `/blogs/${params.slug}`;
+  const images = image ? [image] : [config.ogImg];
+
   return {
-    title: `${post.metadata.title} | Portfolio`,
-    description: post.metadata.summary,
+    title,
+    description: summary,
+    keywords: tags,
+    authors: [{ name: author || config.author, url: config.site }],
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description: summary,
+      url,
+      type: "article",
+      publishedTime: publishedAt,
+      authors: [author || config.author],
+      tags,
+      images,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: summary,
+      images,
+    },
   };
 }
 
@@ -61,9 +94,35 @@ const components = {
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
   const post = getBlogPost(params.slug);
+  if (!post) notFound();
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.metadata.title,
+    description: post.metadata.summary,
+    datePublished: post.metadata.publishedAt,
+    dateModified: post.metadata.publishedAt,
+    keywords: post.metadata.tags?.join(", "),
+    image: post.metadata.image
+      ? new URL(post.metadata.image, config.site).toString()
+      : config.ogImg,
+    url: `${config.site}/blogs/${params.slug}`,
+    mainEntityOfPage: `${config.site}/blogs/${params.slug}`,
+    author: {
+      "@type": "Person",
+      "@id": `${config.site}/#person`,
+      name: post.metadata.author || config.author,
+      url: config.site,
+    },
+  };
 
   return (
     <div className="min-h-screen relative font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ScrollProgress className="bg-gradient-to-r from-purple-500 to-pink-500" />
 
       <div className="container mx-auto px-4 py-24 max-w-3xl">

@@ -69,17 +69,20 @@ A modern, interactive developer portfolio featuring 3D animations, smooth transi
 
 ## 👨‍💻 About Me
 
-I'm Archit Mittal, a full-stack developer and tech enthusiast. Currently:
+I'm Archit Mittal, an AI/ML engineer and tech enthusiast. Currently:
 
+- **AI Builder Intern (R&D)** at Razorpay (Oct 2026 – Present)
+- **Web Developer Intern** at Innspire Media (Jun 2026 – Present)
+- **Co-Founder** of PxA Labs (May 2026 – Present)
 - **Senior Manager – iGV** at AIESEC (Aug 2025 – Feb 2026)
 - **Senior Manager – Business Development** at AIESEC (Feb 2025 – July 2025)
 - **Active Open Source Contributor** across web, ML, DevOps & sustainability
-- **IEEE Student Member** – Spokesperson & Tech Team
+- **Treasurer** at IEEE Student Branch, GEHU (Oct 2026 – Present)
 
 ## 📫 Connect
 
 - **Email:** work.architmittal@gmail.com
-- **LinkedIn:** [archit-mittal-010638305](https://www.linkedin.com/in/archit-mittal-010638305/)
+- **LinkedIn:** [archittmittal](https://www.linkedin.com/in/archittmittal/)
 - **GitHub:** [archittmittal](https://github.com/archittmittal)
 - **Twitter:** [@archittmittal](https://x.com/archittmittal)
 - **Instagram:** [@archittmittal](https://www.instagram.com/archittmittal)

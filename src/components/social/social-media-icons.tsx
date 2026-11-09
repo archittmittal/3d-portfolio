@@ -3,9 +3,10 @@
 import { useInView } from "framer-motion";
 import React, { useRef } from "react";
 import { Button } from "../ui/button";
-import { SiGithub, SiInstagram, SiLinkedin, SiX } from "react-icons/si";
+import { SiGithub, SiInstagram, SiLinkedin, SiOrcid, SiX } from "react-icons/si";
 import { config } from "@/data/config";
 import Link from "next/link";
+import HuggingFaceIcon from "./hugging-face-icon";
 
 const BUTTONS = [
   {
@@ -17,6 +18,16 @@ const BUTTONS = [
     name: "LinkedIn",
     href: config.social.linkedin,
     icon: <SiLinkedin size={"24"} color={"#fff"} />,
+  },
+  {
+    name: "Hugging Face",
+    href: config.social.huggingface,
+    icon: <HuggingFaceIcon size={"24"} color={"#fff"} />,
+  },
+  {
+    name: "ORCID",
+    href: config.social.orcid,
+    icon: <SiOrcid size={"24"} color={"#fff"} />,
   },
   {
     name: "Twitter",

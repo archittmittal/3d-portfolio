@@ -32,7 +32,7 @@ const config = {
   ],
   author: "Archit Mittal",
   email: "work.architmittal@gmail.com",
-  site: "https://architmittal.com",
+  site: "https://www.architmittal.me",
 
   // for github stars button
   githubUsername: "archittmittal",

@@ -6,6 +6,7 @@ import { config } from "@/data/config";
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import AppOverlays from "@/components/app-overlays";
 import { Providers } from "@/components/providers";
 
@@ -109,12 +110,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={[inter.variable, archivoBlack.variable, "font-display"].join(" ")} suppressHydrationWarning>
       <head>
-        <Script
-          defer
-          src={process.env.UMAMI_DOMAIN}
-          data-website-id={process.env.UMAMI_SITE_ID}
-        ></Script>
-        {/* <Analytics /> */}
+        {process.env.UMAMI_DOMAIN && process.env.UMAMI_SITE_ID && (
+          <Script
+            defer
+            src={process.env.UMAMI_DOMAIN}
+            data-website-id={process.env.UMAMI_SITE_ID}
+          ></Script>
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -127,6 +129,7 @@ export default function RootLayout({
           <Footer />
           <AppOverlays />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
